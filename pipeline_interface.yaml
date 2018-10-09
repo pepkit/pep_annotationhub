@@ -1,0 +1,9 @@
+protocol_mapping:
+  *:var
+
+pipelines:
+  var:
+    name: preprocessed_variant_calls
+    outputs:
+      calls: {sample_name}.vcf
+

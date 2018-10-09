@@ -1,0 +1,3 @@
+metadata:
+  pipeline_interfaces: pipeline_interface.yaml
+  output_dir: ${HOME}/datadir
