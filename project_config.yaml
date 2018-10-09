@@ -11,7 +11,7 @@ attributes:
 derived_columns: remote_url
 
 data_sources:
-  ucsc: hgdownload.cse.ucsc.edu/goldenpath/hg19/database/{sample_name}
+  ucsc: hgdownload.cse.ucsc.edu/goldenpath/hg19/database/{sample_name}?token=${TOKEN}
 
 implied_columns:
   organism:
@@ -19,8 +19,4 @@ implied_columns:
       genome: hg19
 
 bioconductor:
-  rparse_code: "function(x) {
-  df = read.table(x$sample_name)
-  colnames = c('chr', 'start', 'end', 'name')
-  GRanges(df)
-    }"
+  rparse_code: parseEncodeRegions
