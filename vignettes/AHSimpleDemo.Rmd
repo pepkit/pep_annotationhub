@@ -1,0 +1,42 @@
+---
+title: "AnnotationHub Simple Demo"
+author: "Levi Waldron"
+date: "10/8/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+suppressPackageStartupMessages({
+  library(AnnotationHub)
+  library(rtracklayer)
+})
+ah <- AnnotationHub()
+encode <- ah[["AH5016"]]
+```
+
+```{r}
+encode
+```
+
+```{r}
+metadata(encode)
+```
+
+```{r}
+tracks <- read.delim("~/Downloads/encodeRegions", header=FALSE)
+encodemanual <- with(tracks, rtracklayer::GRangesForUCSCGenome(genome="hg19", 
+                                               chrom=V1, 
+                                               ranges=IRanges::IRanges(V2, V3),
+                                               names=V4))
+```
+
+```{r}
+encodemanual
+metadata(encodemanual)
+genome(encodemanual)
+```
+
