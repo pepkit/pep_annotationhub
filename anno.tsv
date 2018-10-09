@@ -1,2 +1,2 @@
-sample_name	remote_url
-encodeRegions	ucsc
+sample_name	organism	remote_url
+encodeRegions	human	ucsc
